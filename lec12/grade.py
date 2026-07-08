@@ -70,9 +70,9 @@ class Test(unittest.TestCase):
             y[n] = A*x[n] + B*y[n-1] + C*y[n-2]
         resonance = homework12.resonator(x, F, BW, Fs)
         self.assertEqual(len(resonance), len(y), 'resonator output should be same length as x')
-        self.assertAlmostEqual(resonance[0], y[0], 'resonator[0] should be %g'%(x[0]))
-        self.assertAlmostEqual(resonance[1], y[1], 'resonator[1] should be %g'%(x[1]))
-        self.assertAlmostEqual(resonance[2], y[2], 'resonator[2] should be %g'%(x[2]))
+        self.assertAlmostEqual(resonance[0], y[0]) 
+        self.assertAlmostEqual(resonance[1], y[1]) 
+        self.assertAlmostEqual(resonance[2], y[2]) 
         
     def test_synthesize_vowel(self):
         duration = 8000
@@ -93,10 +93,9 @@ class Test(unittest.TestCase):
         y3 = resonator(y2, F3, BW3, Fs)
         x = resonator(y3, F4, BW4, Fs)
         self.assertEqual(len(resonance), duration, 'synthesize_vowel output length should equal duration')
-        self.assertAlmostEqual(resonance[0], x[0], 'synthesize_vowel[0] should be %g'%(x[0]))
-        self.assertAlmostEqual(resonance[1], x[1], 'synthesize_vowel[1] should be %g'%(x[1]))
-        self.assertAlmostEqual(resonance[2], x[2], 'synthesize_vowel[2] should be %g'%(x[2]))
-
+        self.assertAlmostEqual(resonance[0], x[0])
+        self.assertAlmostEqual(resonance[1], x[1])
+        self.assertAlmostEqual(resonance[2], x[2])
 
 suite = unittest.defaultTestLoader.loadTestsFromTestCase(Test)
 result = unittest.TextTestRunner().run(suite)
